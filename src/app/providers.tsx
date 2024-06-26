@@ -1,4 +1,5 @@
 "use client";
+import Login from "@/components/login";
 import {
   TonConnectButton,
   useTonAddress,
@@ -16,7 +17,14 @@ export default function Providers({ children }: Props) {
   return (
     <>
       {userFriendlyAddress ? (
-        children
+        <div>
+          {userFriendlyAddress ===
+          "UQCJ-z52pGhbV9gXQEXjgMcO7_SYl_104JYmDGZqe00d1KLQ" ? (
+            children
+          ) : (
+            <Login />
+          )}
+        </div>
       ) : (
         <div className='h-screen w-full flex justify-center items-center'>
           <TonConnectButton />
